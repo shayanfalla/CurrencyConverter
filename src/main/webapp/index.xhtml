@@ -6,21 +6,40 @@
     <f:event listener="#{currencyManager.startConversation()}" type="preRenderView">
     </f:event>
     <h:head>
-        <title>myPage</title>
+        <title>Currency Converter</title>
         <style>
             body{text-align:center;}
         </style>
     </h:head>
     <h:body>
-        <h1>Sup?</h1>
+        <h1>Currency Converter</h1>
+        <br/>
         <h:form>
-            <h:outputLabel for="message" value="write something: "/>
-            <h:inputText id="message" value="#{currencyManager.message}"></h:inputText>
+            <p>
+                <br/>
+                <h:inputText value="#{currencyManager.value}"/>
+                <h:selectOneMenu>
+                    <f:selectItem itemValue="EUR" itemLabel="Euro"/>
+                    <f:selectItem itemValue="SEK" itemLabel="Swedish Kronor"/>
+                    <f:selectItem itemValue="GBP" itemLabel="British Pounds"/>
+                    <f:selectItem itemValue="USD" itemLabel="US Dollars"/>
+                </h:selectOneMenu>
+                <h:outputText value =" to "/>
+                <h:selectOneMenu value="#{currencyManager.currChoice}">
+                    <f:selectItem itemValue="EUR" itemLabel="Euro"/>
+                    <f:selectItem itemValue="SEK" itemLabel="Swedish Kronor"/>
+                    <f:selectItem itemValue="GBP" itemLabel="British Pounds"/>
+                    <f:selectItem itemValue="USD" itemLabel="US Dollars"/>
+                </h:selectOneMenu>
+            </p>
+            <h:commandButton value="Convert" action="#{currencyManager.convert}"/>
             <br/>
-            <h:outputText value ="#{currencyManager.message}"/>
+            <br/>
+            <h:outputText value ="#{currencyManager.rate}"/>
+            <h:outputText value =" #{currencyManager.currChoice}"/>
         </h:form>
         <br/>
-        <h:outputText value ="#{currencyManager.rate}"/>
+       <!-- <h:outputText value ="#{currencyManager.rate}"/>-->
     </h:body>
 </html>
 

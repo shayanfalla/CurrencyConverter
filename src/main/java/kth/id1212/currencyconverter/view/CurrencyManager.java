@@ -34,16 +34,18 @@ public class CurrencyManager implements Serializable {
     @Inject
     private Conversation conversation;
     
-    private int message;
+    private double value;
     
     private double rate;
     
-    public int getMessage(){
-        return message;
+    private static String CurrChoice;
+    
+    public double getValue(){
+        return value;
     }
     
-    public void setMessage(int message){
-        this.message = message;
+    public void setValue(double message){
+        this.value = message;
     }
     
     public double getRate(){
@@ -52,6 +54,18 @@ public class CurrencyManager implements Serializable {
     
     public void setRate(double rate){
         this.rate = rate;
+    }
+    
+    public String getCurrChoice(){
+        return CurrChoice;
+    }
+    
+    public void setCurrChoice(String CurrChoice){
+        this.CurrChoice = CurrChoice;
+    }
+    
+    public void convert(){
+        rate = value * 0.100431745;
     }
 
     public void startConversation() {
