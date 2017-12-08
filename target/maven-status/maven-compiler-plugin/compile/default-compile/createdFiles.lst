@@ -1,0 +1,5 @@
+kth\id1212\currencyconverter\view\CurrencyManager.class
+kth\id1212\currencyconverter\integration\CurrencyDAO.class
+kth\id1212\currencyconverter\model\CurrencyRates.class
+kth\id1212\currencyconverter\controller\CurrencyFacade.class
+kth\id1212\currencyconverter\model\CurrencyRates_.class
