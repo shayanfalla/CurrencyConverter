@@ -72,7 +72,7 @@ public class CurrencyManager implements Serializable {
         if (!FacesContext.getCurrentInstance().isPostback() && conversation.isTransient()) {
             conversation.begin();
         }
-        currencyFacade.createCurr();
+        //currencyFacade.createCurr();
     }
 
     public void stopConversation() {

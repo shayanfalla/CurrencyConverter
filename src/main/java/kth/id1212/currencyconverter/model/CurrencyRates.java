@@ -33,8 +33,8 @@ public class CurrencyRates implements Serializable {
     private double rate1;
 
     public CurrencyRates() {
-       /* rate1 = 0.1234;
-        rateName = "this is a string";*/
+        rate1 = 0.1234;
+        rateName = "this is a string";
     }
 
     public double getRate1() {
