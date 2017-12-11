@@ -29,27 +29,46 @@ public class CurrencyRates implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String rateName;
-    @Column(precision=10, scale=2)
-    private double rate1;
+    @Column(precision = 10, scale = 2)
+    private double EURO;
+    @Column(precision = 10, scale = 2)
+    private double SEK;
+    @Column(precision = 10, scale = 2)
+    private double GBP;
+    @Column(precision = 10, scale = 2)
+    private double USD;
 
     public CurrencyRates() {
-        rate1 = 0.1234;
-        rateName = "this is a string";
     }
 
-    public double getRate1() {
-        return rate1;
+    public double getEURO() {
+        return EURO;
+    }
+    
+    public double getSEK(){
+        return SEK;
+    }
+    
+    public double getGBP(){
+        return GBP;
+    }
+    
+    public double getUSD(){
+        return USD;
     }
 
     public String getRatename() {
         return rateName;
     }
-    
-    public void setRate(double rate1){
-        this.rate1 = rate1;
+
+    public void setRates(double EURO, double GBP, double SEK, double USD) {
+        this.EURO = EURO;
+        this.SEK = SEK;
+        this.GBP = GBP;
+        this.USD = USD;
     }
-    
-    public void setRatename(String rateName){
+
+    public void setRatename(String rateName) {
         this.rateName = rateName;
     }
 

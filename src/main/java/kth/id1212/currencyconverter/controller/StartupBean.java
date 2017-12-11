@@ -20,16 +20,36 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+import kth.id1212.currencyconverter.integration.CurrencyDAO;
+import kth.id1212.currencyconverter.model.CurrencyRates;
 
 @Startup
 @Singleton
 public class StartupBean {
 
     @EJB
-    private CurrencyFacade currencyFacade;
+    CurrencyDAO currDB;
 
     @PostConstruct
     private void startup() {
-        currencyFacade.createCurr();
+        CurrencyRates EURO = new CurrencyRates();
+        EURO.setRates(1, 0.8794, 9.94, 1.1773);
+        EURO.setRatename("EURO");
+        currDB.storeRate(EURO);
+
+        CurrencyRates GBP = new CurrencyRates();
+        GBP.setRates(1.1371, 1, 11.3062, 1.3387);
+        GBP.setRatename("GBP");
+        currDB.storeRate(GBP);
+
+        CurrencyRates SEK = new CurrencyRates();
+        SEK.setRates(0.1006, 0.0884, 1, 0.1184);
+        SEK.setRatename("SEK");
+        currDB.storeRate(SEK);
+
+        CurrencyRates USD = new CurrencyRates();
+        USD.setRates(0.8494, 0.747, 8.4457, 1);
+        USD.setRatename("USD");
+        currDB.storeRate(USD);
     }
 }

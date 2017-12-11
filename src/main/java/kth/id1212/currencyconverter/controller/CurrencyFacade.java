@@ -30,11 +30,6 @@ public class CurrencyFacade {
     @EJB
     CurrencyDAO currDB;
 
-    public void createCurr() {
-        CurrencyRates cr = new CurrencyRates();
-        currDB.storeRate(cr);
-    }
-
     public String findCurr() {
         CurrencyRates cr = currDB.getCurrencyRate("this is a string");
         return cr.getRatename();
@@ -42,6 +37,6 @@ public class CurrencyFacade {
 
     public double findCurrRate() {
         CurrencyRates cr = currDB.getCurrencyRate("this is a string");
-        return cr.getRate1();
+        return cr.getEURO();
     }
 }
