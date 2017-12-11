@@ -30,13 +30,18 @@ public class CurrencyFacade {
     @EJB
     CurrencyDAO currDB;
 
-    public String findCurr() {
-        CurrencyRates cr = currDB.getCurrencyRate("this is a string");
-        return cr.getRatename();
-    }
-
-    public double findCurrRate() {
-        CurrencyRates cr = currDB.getCurrencyRate("this is a string");
-        return cr.getEURO();
+    public double findCurrRate(String fromRate, String toRate){
+        CurrencyRates cr = currDB.getCurrency(fromRate);
+        switch (toRate) {
+            case "EURO":
+                return cr.getEURO();
+            case "GBP":
+                return cr.getGBP();
+            case "SEK":
+                return cr.getSEK();
+            case "USD":
+                return cr.getUSD();
+            default: return 0;
+        }
     }
 }

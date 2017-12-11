@@ -18,15 +18,15 @@
             <p>
                 <br/>
                 <h:inputText value="#{currencyManager.value}"/>
-                <h:selectOneMenu>
-                    <f:selectItem itemValue="EUR" itemLabel="Euro"/>
+                <h:selectOneMenu value="#{currencyManager.fromRate}">
+                    <f:selectItem itemValue="EURO" itemLabel="Euro"/>
                     <f:selectItem itemValue="SEK" itemLabel="Swedish Kronor"/>
                     <f:selectItem itemValue="GBP" itemLabel="British Pounds"/>
                     <f:selectItem itemValue="USD" itemLabel="US Dollars"/>
                 </h:selectOneMenu>
                 <h:outputText value =" to "/>
-                <h:selectOneMenu value="#{currencyManager.currChoice}">
-                    <f:selectItem itemValue="EUR" itemLabel="Euro"/>
+                <h:selectOneMenu value="#{currencyManager.toRate}">
+                    <f:selectItem itemValue="EURO" itemLabel="Euro"/>
                     <f:selectItem itemValue="SEK" itemLabel="Swedish Kronor"/>
                     <f:selectItem itemValue="GBP" itemLabel="British Pounds"/>
                     <f:selectItem itemValue="USD" itemLabel="US Dollars"/>
@@ -36,10 +36,8 @@
             <br/>
             <br/>
             <h:outputText value ="#{currencyManager.rate}"/>
-            <h:outputText value =" #{currencyManager.currChoice}"/>
+            <h:outputText value =" #{currencyManager.toRate}"/>
         </h:form>
-        <br/>
-       <!-- <h:outputText value ="#{currencyManager.rate}"/>-->
     </h:body>
 </html>
 

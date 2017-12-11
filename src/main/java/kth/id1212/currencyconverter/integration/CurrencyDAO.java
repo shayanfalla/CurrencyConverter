@@ -31,22 +31,16 @@ public class CurrencyDAO {
     @PersistenceContext(unitName = "simple-jpaPU")
     private EntityManager em;
 
-    public CurrencyRates getCurrencyRate(String rate) {
-        CurrencyRates currencyRate = em.find(CurrencyRates.class, rate);
+    public CurrencyRates getCurrency(String fromRate) {
+        CurrencyRates currencyRate = em.find(CurrencyRates.class, fromRate);
         if (currencyRate == null) {
             throw new EntityNotFoundException("No rate");
         }
+        
         return currencyRate;
     }
 
     public void storeRate(CurrencyRates cr) {
         em.persist(cr);
-    }
-    
-    public boolean contains(String ratename){
-        if(em.contains(ratename)){
-            return true;
-        }
-        return false;
     }
 }

@@ -38,7 +38,9 @@ public class CurrencyManager implements Serializable {
     
     private double rate;
     
-    private static String CurrChoice;
+    private static String toRate;
+    
+    private static String fromRate;
     
     public double getValue(){
         return value;
@@ -56,23 +58,30 @@ public class CurrencyManager implements Serializable {
         this.rate = rate;
     }
     
-    public String getCurrChoice(){
-        return CurrChoice;
+    public void setfromRate(String fromRate){
+        this.fromRate = fromRate;
     }
     
-    public void setCurrChoice(String CurrChoice){
-        this.CurrChoice = CurrChoice;
+    public String getFromRate(){
+        return this.fromRate;
+    }
+    
+    public String getToRate(){
+        return toRate;
+    }
+    
+    public void setToRate(String CurrChoice){
+        this.toRate = CurrChoice;
     }
     
     public void convert(){
-        rate = value * 0.100431745;
+        rate = value * currencyFacade.findCurrRate(fromRate, toRate);
     }
 
     public void startConversation() {
         if (!FacesContext.getCurrentInstance().isPostback() && conversation.isTransient()) {
             conversation.begin();
         }
-        //currencyFacade.createCurr();
     }
 
     public void stopConversation() {
