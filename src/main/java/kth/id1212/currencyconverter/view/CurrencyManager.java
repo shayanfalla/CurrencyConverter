@@ -25,7 +25,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import kth.id1212.currencyconverter.controller.CurrencyFacade;
 
-@Named(value= "currencyManager")
+@Named(value = "currencyManager")
 @ConversationScoped
 public class CurrencyManager implements Serializable {
 
@@ -33,48 +33,48 @@ public class CurrencyManager implements Serializable {
     private CurrencyFacade currencyFacade;
     @Inject
     private Conversation conversation;
-    
+
     private double value;
-    
+
     private double rate;
-    
+
     private static String toRate;
-    
+
     private static String fromRate;
-    
-    public double getValue(){
+
+    public double getValue() {
         return value;
     }
-    
-    public void setValue(double message){
+
+    public void setValue(double message) {
         this.value = message;
     }
-    
-    public double getRate(){
+
+    public double getRate() {
         return rate;
     }
-    
-    public void setRate(double rate){
+
+    public void setRate(double rate) {
         this.rate = rate;
     }
-    
-    public void setfromRate(String fromRate){
+
+    public void setfromRate(String fromRate) {
         this.fromRate = fromRate;
     }
-    
-    public String getFromRate(){
+
+    public String getFromRate() {
         return this.fromRate;
     }
-    
-    public String getToRate(){
+
+    public String getToRate() {
         return toRate;
     }
-    
-    public void setToRate(String CurrChoice){
+
+    public void setToRate(String CurrChoice) {
         this.toRate = CurrChoice;
     }
-    
-    public void convert(){
+
+    public void convert() {
         rate = value * currencyFacade.findCurrRate(fromRate, toRate);
     }
 
@@ -89,6 +89,5 @@ public class CurrencyManager implements Serializable {
             conversation.end();
         }
     }
-    
-    
+
 }

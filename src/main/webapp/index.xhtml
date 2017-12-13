@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <f:event listener="#{currencyManager.startConversation()}" type="preRenderView">
+    <f:event listener="#{currencyManager.startConversation}" type="preRenderView">
     </f:event>
     <h:head>
         <title>Currency Converter</title>
@@ -17,6 +17,7 @@
         <h:form>
             <p>
                 <br/>
+                <hr />
                 <h:inputText value="#{currencyManager.value}"/>
                 <h:selectOneMenu value="#{currencyManager.fromRate}">
                     <f:selectItem itemValue="EURO" itemLabel="Euro"/>
@@ -37,6 +38,7 @@
             <br/>
             <h:outputText value ="#{currencyManager.rate}"/>
             <h:outputText value =" #{currencyManager.toRate}"/>
+            <hr/>
         </h:form>
     </h:body>
 </html>

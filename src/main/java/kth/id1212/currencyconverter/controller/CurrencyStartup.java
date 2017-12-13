@@ -25,7 +25,7 @@ import kth.id1212.currencyconverter.model.CurrencyRates;
 
 @Startup
 @Singleton
-public class StartupBean {
+public class CurrencyStartup {
 
     @EJB
     CurrencyDAO currDB;
