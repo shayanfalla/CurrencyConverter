@@ -46,8 +46,8 @@ public class CurrencyManager implements Serializable {
         return value;
     }
 
-    public void setValue(double message) {
-        this.value = message;
+    public void setValue(double value) {
+        this.value = value;
     }
 
     public double getRate() {
@@ -70,8 +70,8 @@ public class CurrencyManager implements Serializable {
         return toRate;
     }
 
-    public void setToRate(String CurrChoice) {
-        this.toRate = CurrChoice;
+    public void setToRate(String toRate) {
+        this.toRate = toRate;
     }
 
     public void convert() {
